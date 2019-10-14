@@ -52,7 +52,7 @@ class XmlTableModule extends \Module
 			$error = "Cannot parse XML File!";	
 		}
 
-		$this->Template->headings = preg_split ("/\;/", $this->table_headings);
+		$this->Template->headings = array();//preg_split ("/\;/", $this->table_headings);
 		$this->Template->error = $error;
 		$this->Template->dataset = json_decode(json_encode((array) $dataset));
 
