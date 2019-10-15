@@ -2,22 +2,24 @@
 
 <?php $this->block('content'); ?>
 
-<?php foreach($this->dataset as $data): ?>
-<table>
-    <tr>
-    <?php foreach($this->headings as $th): ?>
-        <th> <?=$th  ?> </th>
-    <?php endforeach;?>
-    </tr>
-<?php foreach($data as $element): ?>
-    <tr>
-    <?php foreach($element as $cell): ?>
-        <td> <?= $cell ?> </td>
-    <?php endforeach;?>
-    </tr>
+<?php if($this->error == ''): ?>
+    <table>
+        <tr>
+        <?php foreach($this->headings as $th): ?>
+            <th> <?= $th ?> </th>
+        <?php endforeach;?>
+        </tr>
+    <?php foreach($this->data as $element): ?>
+        <tr>
+        <?php foreach($element as $cell): ?>
+            <td> <?php echo($cell)?> </td>
+        <?php endforeach;?>
+        </tr>
 
-    <?php endforeach;?>
-</table>
-<?php endforeach;?>
+        <?php endforeach;?>
+    </table>
+<?php else: ?>
+    <p> <?= $this->error ?> </p>
+<?php endif; ?>
 
 <?php $this->endblock(); ?>
