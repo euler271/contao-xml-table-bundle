@@ -2,21 +2,27 @@
 
 <?php $this->block('content'); ?>
 
+<?php $even = False; ?>
 <?php if($this->error == ''): ?>
     <table>
-        <tr>
-        <?php foreach($this->headings as $th): ?>
-            <th> <?= $th ?> </th>
-        <?php endforeach;?>
-        </tr>
+        <thead>
+            <tr class="even">
+                <?php foreach($this->headings as $th): ?>
+                    <th> <?= $th ?> </th>
+                <?php endforeach;?>
+            </tr>
+        </thead>
+        <tbody>
     <?php foreach($this->data as $element): ?>
-        <tr>
-        <?php foreach($element as $cell): ?>
-            <td> <?php echo($cell)?> </td>
-        <?php endforeach;?>
-        </tr>
+            <tr class="<?= ($even ? 'even' : 'odd');?>">
+                <?php $even = !$even;?>
+                <?php foreach($element as $cell): ?>
+                    <td> <?php echo($cell)?> </td>
+                <?php endforeach;?>
+            </tr>
 
         <?php endforeach;?>
+        </tbody>
     </table>
 <?php else: ?>
     <p> <?= $this->error ?> </p>
