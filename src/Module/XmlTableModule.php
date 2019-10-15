@@ -60,7 +60,7 @@ class XmlTableModule extends \Module
 			$error = "Could not parse XML File!";
 		}
 
-		$fields = preg_split("/\;/", $this->col_names);
+		$fields = preg_split("/\;/", $this->col_names, -1, PREG_SPLIT_NO_EMPTY);
 
 		$dataShown = array();
 		foreach ($data as $element){
@@ -82,7 +82,7 @@ class XmlTableModule extends \Module
 
 		}
 
-		$this->Template->headings = preg_split ("/\;/", $this->col_headings);
+		$this->Template->headings = preg_split ("/\;/", $this->col_headings, -1, PREG_SPLIT_NO_EMPTY);
 		$this->Template->error = $error;
 		$this->Template->data = $dataShown;
 
