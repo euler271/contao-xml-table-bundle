@@ -1,0 +1,34 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<?php $even = False; ?>
+
+<table>
+    <thead>
+    <tr class="even">
+        <?php foreach($this->headings as $th): ?>
+        <th> <?= $th ?> </th>
+        <?php endforeach;?>
+    </tr>
+    </thead>
+
+    <tbody>
+    <?php foreach($this->table as $row): ?>
+    <tr class="<?= ($even ? 'even' : 'odd');?>">
+        <?php $even = !$even;?>
+        <?php foreach($row as $cell): ?>
+            <td>
+                <?php if($cell[1] != ''): //Set an a tag with Link here?>
+                    <a href="<?= $cell[1] ?>"><?= $cell[0] ?></a>
+                <?php else: ?>
+                    <?= $cell[0] ?>
+                <?php endif; ?>
+            </td>
+        <?php endforeach; ?>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php $this->endblock(); ?>
