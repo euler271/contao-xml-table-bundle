@@ -85,6 +85,8 @@ class XmlTableModule extends \Module
 		$this->Template->headings = preg_split ("/\;/", $this->col_headings, -1, PREG_SPLIT_NO_EMPTY);
 		$this->Template->error = $error;
 		$this->Template->data = $dataShown;
+		$this->Template->search_cols = preg_split ("/\;/", $this->search_cols, -1, PREG_SPLIT_NO_EMPTY);
+		$this->Template->searchfield_text = $this->searchfield_text;
 
     }
 }

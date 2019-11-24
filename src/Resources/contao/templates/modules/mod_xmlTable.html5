@@ -4,7 +4,7 @@
 
 <?php $even = False; ?>
 <?php if($this->error == ''): ?>
-    <input type="text" id="parsedXMLTableSearch" onkeyup="searchInParsedXMLTable()" placeholder="Suche in Tabelle..">
+    <input type="text" id="parsedXMLTableSearch" onkeyup="searchInParsedXMLTable()" placeholder="<?=$this->searchfield_text?>">
     <table id="parsedXMLTable">
         <thead>
             <tr class="even">
@@ -39,13 +39,25 @@
         tr = table.getElementsByTagName("tr");
 
         // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+
+            var show = false;
+            var search = <?= json_encode($this->search_cols) ?>;
+            var j;
+            for(j in search){
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        show = true;
+                        //tr[i].style.display = "";
+                    } else {
+                        //tr[i].style.display = "none";
+                    }
+                }
+                if(show){
                     tr[i].style.display = "";
-                } else {
+                }else{
                     tr[i].style.display = "none";
                 }
             }
