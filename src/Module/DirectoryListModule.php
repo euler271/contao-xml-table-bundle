@@ -103,7 +103,8 @@ class DirectoryListModule extends \Module
 						$plen = strlen(parse_url($this->directoryurl)['path']);
 						$href = $request_uri.'?folder='.substr($href, $plen);
 					}else{
-						$href = (strpos($href,".") !== false ? $origin.$href : $request_uri.'?folder='.$folder.$href);
+						$isFile = strpos($href,".") !== false || $href[strlen($href)-1] !== '/';
+						$href = ($isFile ? $origin.$href : $request_uri.'?folder='.$folder.$href);
 					}
 					$array[] = array($td->firstChild->textContent, $href);
 				}else{
@@ -130,7 +131,8 @@ class DirectoryListModule extends \Module
 				$plen = strlen(parse_url($this->directoryurl)['path']);
 				$href = $request_uri.'?folder='.substr($href, $plen);
 			}else{
-				$href = (strpos($href,".") !== false ? $origin.$href : $request_uri.'?folder='.$folder.$href);
+				$isFile = strpos($href,".") !== false || $href[strlen($href)-1] !== '/';
+				$href = ($isFile ? $origin.$href : $request_uri.'?folder='.$folder.$href);
 			}
 
 			$description = explode(" ", trim(preg_replace('/\s+/', ' ', $a->nextSibling->textContent)));

@@ -15,4 +15,4 @@ $GLOBALS['TL_LANG']['tl_module']['directoryurl'] = ['Link zum Directory Listing'
 
 $GLOBALS['TL_LANG']['tl_module']['directory_listing_type'] = ['Typ', 'Wählen Sie die Art des Directory Listings'];
 $GLOBALS['TL_LANG']['tl_module']['directory_listing_table'] = ['Tabelle', ''];
-$GLOBALS['TL_LANG']['tl_module']['directory_listing_br_splitted_anchors'] = ['Standard', ''];
+$GLOBALS['TL_LANG']['tl_module']['directory_listing_other'] = ['Standard', ''];

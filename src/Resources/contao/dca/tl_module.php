@@ -76,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['directory_listing_type'] = array
 (
 	'label'               => &$GLOBALS['TL_LANG']['tl_module']['directory_listing_type'],
 	'inputType'     	  => 'select',
-	'options'             => array('directory_listing_table','other'),
+	'options'             => array('directory_listing_table','directory_listing_other'),
 	'reference'           => &$GLOBALS['TL_LANG']['tl_module'],
 	'eval'                => array('mandatory'=>true, 'maxlength'=>64, 'tl_class'=>'w50 wizard'),
 	'sql'                 => "varchar(255) NOT NULL default ''"
