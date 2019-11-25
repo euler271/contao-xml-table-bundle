@@ -101,7 +101,7 @@ class DirectoryListModule extends \Module
 					$href = $td->firstChild->getAttribute('href');
 					if($href[0] == '/'){
 						$plen = strlen(parse_url($this->directoryurl)['path']);
-						$href = $request_uri.(strlen(substr($href, $plen) > 0) ? '?folder='.substr($href, $plen) : '');
+						$href = $request_uri.(strlen(substr($href, $plen)) > 0 ? '?folder='.substr($href, $plen) : '');
 					}else{
 						$isFile = strpos($href,".") !== false || $href[strlen($href)-1] !== '/';
 						$href = ($isFile ? $origin.$href : $request_uri.'?folder='.$folder.$href);
@@ -129,7 +129,7 @@ class DirectoryListModule extends \Module
 			$href = $a->getAttribute('href');
 			if($href[0] == '/'){
 				$plen = strlen(parse_url($this->directoryurl)['path']);
-				$href = $href = $request_uri.(strlen(substr($href, $plen) > 0) ? '?folder='.substr($href, $plen) : '');
+				$href = $href = $request_uri.(strlen(substr($href, $plen)) > 0 ? '?folder='.substr($href, $plen) : '');
 			}else{
 				$isFile = strpos($href,".") !== false || $href[strlen($href)-1] !== '/';
 				$href = ($isFile ? $origin.$href : $request_uri.'?folder='.$folder.$href);
