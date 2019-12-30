@@ -5,6 +5,7 @@
 <?php $even = False; ?>
 <?php if($this->error == ''): ?>
     <input type="text" id="parsedXMLTableSearch" onkeyup="searchInParsedXMLTable()" placeholder="<?=$this->searchfield_text?>">
+    <div class="table_container">
     <table id="parsedXMLTable">
         <thead>
             <tr class="even">
@@ -25,6 +26,7 @@
         <?php endforeach;?>
         </tbody>
     </table>
+    </div>
 <?php else: ?>
     <p> <?= $this->error ?> </p>
 <?php endif; ?>
